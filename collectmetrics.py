@@ -9,7 +9,7 @@ config = oci.config.from_file("config")
 # Initialize service client with default config file
 monitoring_client = oci.monitoring.MonitoringClient(config)
 
-
+OCID ="ocid1.instance.oc1.me-jeddah-1.anvgkljrqvob4kyctrn4pl5ikynze23mbr3kfpilzejfhhnahjave2eit5oa"
 # Send the request to service, some parameters are not required, see API
 # doc for more info
 #
@@ -21,7 +21,7 @@ summarize_metrics_data_response = monitoring_client.summarize_metrics_data(
     compartment_id="ocid1.compartment.oc1..aaaaaaaa4vtosolddtixrwkdk43zpoyjehqbnbyy5wqfn4njzthbp3q74d6q",
     summarize_metrics_data_details=oci.monitoring.models.SummarizeMetricsDataDetails(
         namespace="oci_computeagent",
-        query='CpuUtilization[1m]{resourceDisplayName = "testvscalelinux"}.mean()',
+        query='CpuUtilization[1m]{resourceID = "ocid1.instance.oc1.me-jeddah-1.anvgkljrqvob4kyctrn4pl5ikynze23mbr3kfpilzejfhhnahjave2eit5oa"}.mean()',
         start_time=start_time,
         end_time=end_time
     ))
